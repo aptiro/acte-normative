@@ -1,4 +1,4 @@
 Django==1.7.7
 pip-tools==0.3.5
-raven==5.2.0
+raven==5.1.0
 whitenoise==1.0.6
