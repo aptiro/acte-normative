@@ -6,5 +6,6 @@ from bills import views
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^search/', include('haystack.urls')),
-    url(r'^receive_bills', views.receive_bills),
+    url(r'^receive_bills$', views.receive_bills),
+    url(r'^crashme$', views.crashme),
 )

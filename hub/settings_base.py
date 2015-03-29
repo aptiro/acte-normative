@@ -21,6 +21,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'haystack',
+    'raven.contrib.django.raven_compat',
     'hub.bills',
 )
 
@@ -33,6 +34,10 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
+
+TEMPLATE_LOADERS = [
+    'django.template.loaders.app_directories.Loader',
+]
 
 ROOT_URLCONF = 'hub.urls'
 
@@ -59,3 +64,6 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
