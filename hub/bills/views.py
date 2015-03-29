@@ -12,10 +12,11 @@ def receive_bills(request):
     received_bills = json.loads(request.body)
     for received_bill in received_bills:
         # TODO: use authorization by API key
+        title = received_bill['title']
         institution = Institution.objects.first()
-        bill = Bill(title=received_bill['title'],
+        bill = Bill(title=title,
                     url=received_bill['url'],
-                    key=hashlib.sha1(received_bill['title'].encode('utf-8')),
+                    key=hashlib.sha1(title.encode('utf-8')).hexdigest(),
                     institution=institution)
         bill.save()
     return JsonResponse({'status': 'ok'})
