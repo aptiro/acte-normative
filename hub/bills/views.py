@@ -3,6 +3,8 @@ import hashlib
 
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.admin.views.decorators import staff_member_required
+from django.template.response import TemplateResponse
 
 from models import Bill, Institution
 
@@ -20,3 +22,10 @@ def receive_bills(request):
                     institution=institution)
         bill.save()
     return JsonResponse({'status': 'ok'})
+
+
+@staff_member_required
+def crashme(request):
+    if request.method == "POST":
+        raise RuntimeError("Crashing, as requested.")
+    return TemplateResponse(request, 'crashme.html', {})

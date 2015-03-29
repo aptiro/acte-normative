@@ -33,6 +33,10 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
+TEMPLATE_LOADERS = [
+    'django.template.loaders.app_directories.Loader',
+]
+
 ROOT_URLCONF = 'hub.urls'
 
 WSGI_APPLICATION = 'hub.wsgi.application'
