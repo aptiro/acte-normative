@@ -1,4 +1,5 @@
 *.pyc
 /hub/settings.py
 /db.sqlite3
+/hub/whoosh_index/*
 /staticfiles
