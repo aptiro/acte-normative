@@ -1,11 +1,11 @@
 import json
 import hashlib
 
-from django.shortcuts import render
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 from models import Bill, Institution
+
 
 @csrf_exempt
 def receive_bills(request):
